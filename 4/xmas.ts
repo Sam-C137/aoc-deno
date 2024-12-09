@@ -15,21 +15,21 @@ function count(grid: string[][]): number {
         [-1, 1]
     ]
 
-    for (let i = 0; i < grid.length; i++) {
-        for (let j = 0; j < grid[i].length; j++) {
-            for (const [dx, dy] of directions) {
+    for (let r = 0; r < grid.length; r++) {
+        for (let c = 0; c < grid[r].length; c++) {
+            for (const [dr, dc] of directions) {
                 let sequence = "";
-                const end_x = i + (word.length - 1) * dx;
-                const end_y = j + (word.length - 1) * dy;
+                const end_r = r + (word.length - 1) * dr;
+                const end_c = c + (word.length - 1) * dc;
 
-                if(end_x < 0 || end_x >= grid.length || end_y < 0 || end_y >= grid[i].length) {
+                if(end_r < 0 || end_r >= grid.length || end_c < 0 || end_c >= grid[r].length) {
                     continue;
                 }
 
                 for (let k = 0; k < word.length; k++) {
-                    const x = i + k * dx;
-                    const y = j + k * dy;
-                    sequence += grid[x][y];
+                    const new_r = r + k * dr;
+                    const new_c = c + k * dc;
+                    sequence += grid[new_r][new_c];
                 }
 
                 if(sequence === word || sequence === reversed) {

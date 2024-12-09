@@ -7,12 +7,12 @@ async function main() {
 function count(grid: string[][]): number{
     let count = 0;
 
-    for (let i = 1; i < grid.length - 1; i++) {
-        for (let j = 1; j < grid[i].length - 1; j++) {
-            if(grid[i][j] !== "A") continue;
+    for (let r = 1; r < grid.length - 1; r++) {
+        for (let c = 1; c < grid[r].length - 1; c++) {
+            if(grid[r][c] !== "A") continue;
 
-            const first = grid[i - 1][j - 1] + grid[i][j] + grid[i + 1][j + 1];
-            const second = grid[i - 1][j + 1] + grid[i][j] + grid[i + 1][j - 1];
+            const first = grid[r - 1][c - 1] + grid[r][c] + grid[r + 1][c + 1];
+            const second = grid[r - 1][c + 1] + grid[r][c] + grid[r + 1][c - 1];
 
             if (
                 ["MAS", "SAM"].includes(first) &&
